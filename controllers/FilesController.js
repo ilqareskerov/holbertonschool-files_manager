@@ -131,10 +131,9 @@ class FilesController {
     const parentId = request.query.parentId || 0;
     // parentId = parentId === '0' ? 0 : parentId;
 
-    let pagination = request.query.page || 0;
-     pagination = Number.isNaN(pagination) ? 0 : pagination;
-     pagination = pagination < 0 ? 0 : pagination;
-     pagination = if(pagination > 20) ? 20 : pagination;
+    const pagination = request.query.page || 0;
+    // pagination = Number.isNaN(pagination) ? 0 : pagination;
+    // pagination = pagination < 0 ? 0 : pagination;
 
     const aggregationMatch = { $and: [{ parentId }] };
     let aggregateData = [{ $match: aggregationMatch }, { $skip: pagination * 20 }, { $limit: 20 }];
