@@ -1,5 +1,4 @@
-import redisClient from './utils/redis.js';
-
+import redisClient from './utils/redis';
 
 (async () => {
     console.log(redisClient.isAlive());
@@ -9,5 +8,5 @@ import redisClient from './utils/redis.js';
 
     setTimeout(async () => {
         console.log(await redisClient.get('myKey'));
-    }, 1000 * 10);
+    }, 1000*10)
 })();
